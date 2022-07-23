@@ -1,0 +1,16 @@
+{
+  "frontend": {
+    "apiPath": "api/v1",
+    "basePath" : "/"
+  },
+  "server": {
+    "apiPath": "/api/v1",
+    "basePath" : "/",
+    "bodyLimit": "30mb",
+    "keycloak": {
+      "serverUrl": "https://dev.oidc.gov.bc.ca/auth"
+    },
+    "logLevel": "http",
+    "port": "8080"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "frontend": {
+    "apiPath": "FRONTEND_APIPATH",
+    "basePath": "FRONTEND_BASEPATH"
+  },
+  "server": {
+    "apiPath": "SERVER_APIPATH",
+    "basePath" : "SERVER_BASEPATH",
+    "bodyLimit": "SERVER_BODYLIMIT",
+    "logFile": "SERVER_LOGFILE",
+    "logLevel": "SERVER_LOGLEVEL",
+    "port": "SERVER_PORT"
+  }
+}
