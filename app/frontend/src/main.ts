@@ -19,7 +19,6 @@ async function loadConfig() {
     // Still need?? tbd
 
     const storageKey: string = 'config';
-
     try {
         // Get configuration if it isn't already in session storage
         if (sessionStorage.getItem(storageKey) === null) {
