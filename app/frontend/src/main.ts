@@ -1,11 +1,26 @@
-import { createPinia } from "pinia";
 import router from './router'
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 
 import axios from 'axios';
+
+/*
+  UI framework PrimeVue
+  https://www.primefaces.org/primevue/
+  Each component is defined here so
+  the tree shaking can be applied.
+
+  There are material themes available that would
+  match the Gov't style.
+*/
 import PrimeVue from 'primevue/config';
+import "primevue/resources/themes/nova-vue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+import Toast, { PluginOptions } from "vue-toastification";
+import "vue-toastification/dist/index.css";
+const options: PluginOptions = {};
 
 loadConfig();
 
@@ -50,7 +65,7 @@ function initializeApp(config: object) {
     app.provide('config', config)
     app.use(PrimeVue);
     app.use(router);
-    app.use(createPinia());
+    app.use(Toast, options);
 
     app.mount('#app')
 }

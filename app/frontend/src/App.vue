@@ -1,29 +1,25 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import { inject } from 'vue'
-let globalVar=inject('config')
+import Login from "./components/Login.vue";
+import Dashboard from "./pages/Dashboard.vue";
+import store from "./store";
+import { inject, provide } from "vue";
+
+let globalVar = inject('config')
+provide("store", store); // Allow the entire app to see the store.
 
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  {{ globalVar }} dsfsdfdsfsdfdsf
-  <HelloWorld msg="Vite + Vue" />
-  
+  {{ globalVar }}  config from api
+
   <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
   </div>
   <router-view />
+
+  <Dashboard v-if="store.state.token" />
+  <Login v-else />
 </template>
 
 <style scoped>
@@ -39,5 +35,24 @@ let globalVar=inject('config')
 
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+html,
+body {
+  height: 100%;
+}
+#app {
+  height: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 </style>
