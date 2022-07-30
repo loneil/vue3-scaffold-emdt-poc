@@ -11,15 +11,21 @@ provide("store", store); // Allow the entire app to see the store.
 </script>
 
 <template>
-  {{ globalVar }}  config from api
+  <h2>Config from backend</h2>
+  {{ globalVar }}
 
+  <hr />
+  <h2>Vue Routing structure</h2>
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </div>
   <router-view />
+  <hr />
   <ApiHealth />
 
+  <hr />
+  <h2>Existing Tenant UI Components</h2>
   <Dashboard v-if="store.state.token" />
   <Login v-else />
 </template>
@@ -43,6 +49,7 @@ html,
 body {
   height: 100%;
 }
+
 #app {
   height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -50,6 +57,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
 .login {
   display: flex;
   flex-direction: column;

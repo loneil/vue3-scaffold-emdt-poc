@@ -29,7 +29,7 @@ const copy_to_clipboard = (content: string) => {
       class="clipboard-button"
       label="Copy to Clipboard"
       icon="pi pi-paperclip"
-      @click="copy_to_clipboard(qr_content || '')"
+      @click="copy_to_clipboard(qr_content!)"
     ></Button>
     <Accordion class="qr-accordion">
       <AccordionTab header="View Raw Content">
